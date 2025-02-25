@@ -1,0 +1,116 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五彩导航效果</title>
+    <style>
+        /* 页面整体样式，确保居中显示 */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center;    /* 垂直居中 */
+            font-family: Arial, sans-serif;
+        }
+
+        /* 导航容器样式 */
+        .navbar-container {
+            display: flex;
+            justify-content: space-around; /* 导航项分布均匀 */
+            width: 80%;
+        }
+
+        /* 每个导航项的样式 */
+        .nav-item1 {
+            width: 100px;
+            height: 50px;
+            background: url(images/bg1.png) no-repeat center; /* 背景图片 */
+            background-size: cover; /* 背景图大小自动调整 */
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 10px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10%;
+        }
+        .nav-item2 {
+            width: 100px;
+            height: 50px;
+            background: url(images/bg2.png) no-repeat center; /* 背景图片 */
+            background-size: cover; /* 背景图大小自动调整 */
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 10px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10%;
+        }
+         .nav-item3 {
+            width: 100px;
+            height: 50px;
+            background: url(images/bg3.png) no-repeat center; /* 背景图片 */
+            background-size: cover; /* 背景图大小自动调整 */
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 10px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10%;
+         }
+         .nav-item4 {
+            width: 100px;
+            height: 50px;
+            background: url(images/bg4.png) no-repeat center; /* 背景图片 */
+            background-size: cover; /* 背景图大小自动调整 */
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 10px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10%;
+         }
+        /* 添加小三角形 */
+        .nav-item::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid rgba(0, 0, 0, 0.1); /* 轻微的阴影效果 */
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 鼠标悬停时的动画效果 */
+        .nav-item:hover {
+            transform: translateY(-5px); /* 鼠标悬停时上移 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 五彩导航容器 -->
+    <div class="navbar-container">
+        <div class="nav-item1">五彩导航</div>
+        <div class="nav-item2">五彩导航</div>
+        <div class="nav-item3">五彩导航</div>
+        <div class="nav-item4">五彩导航</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏效果</title>
+    <style>
+        /* 页面整体设置，确保导航栏水平和垂直居中 */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center;    /* 垂直居中 */
+            font-family: Arial, sans-serif;
+        }
+
+        /* 导航栏容器 */
+        .navbar-container {
+            display: flex;
+            flex-wrap: wrap; /* 使导航栏项自动换行 */
+            justify-content: center; /* 使导航栏项在容器中水平居中 */
+        }
+
+        /* 导航按钮的基本样式 */
+        .nav-item {
+            width: 80px;
+            height: 50px;
+            background-color: #ff0000;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            margin: 5px; /* 导航项之间的间距 */
+            font-size: 16px;
+            transition: background-color 0.3s; /* 背景色变化的过渡效果 */
+        }
+        .nav-item1 {
+            width: 80px;
+            height: 50px;
+            background-color: #ffa500;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            margin: 5px; /* 导航项之间的间距 */
+            font-size: 16px;
+            transition: background-color 0.3s; /* 背景色变化的过渡效果 */
+        }
+
+        /* 鼠标悬停时的效果 */
+        .nav-item:hover {
+            background-color: #ffa500;
+        }
+
+        /* 创建一个不可见的占位符 */
+        .placeholder {
+            flex: 1 0 100%; /* 占据整个行 */
+            height: 0;      /* 不占用高度空间 */
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="position: absolute; top: 20px;">普通导航-效果图</h1>
+    
+    <!-- 导航栏容器 -->
+    <div class="navbar-container">
+        <div class="nav-item">导航1</div>
+        <div class="nav-item">导航2</div>
+        <div class="nav-item">导航3</div>
+        <div class="nav-item">导航4</div>
+        <div class="nav-item">导航5</div>
+        <!-- 使用占位符创建新的一行 -->
+        <div class="placeholder"></div>
+        <!-- 新的导航项 -->
+        <div class="nav-item">导航1</div>
+        <div class="nav-item">导航2</div>
+        <div class="nav-item">导航3</div>
+        <div class="nav-item">导航4</div>
+        <div class="nav-item1">导航5</div>
+    </div>
+
+</body>
+</html>

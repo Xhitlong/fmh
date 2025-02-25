@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fatherss .xjj {
+            color: red;
+        }
+        .father > p {
+            color: royalblue;
+        }
+        .bing, .asd, .rrr {
+            font-size: 88px;
+            font-weight: bold;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .box:hover {
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <!--后代选择器 -->
+    <div class="fatherss">
+        父元素
+        <p class="xjj">小姐姐</p>
+        <div>笑傲将会有
+            <p>666</p>
+        </div>
+        <div>12123123</div>
+    </div>
+    <!-- 子代选择器 -->
+    <div class="father">
+        <p>小可爱</p>
+        <div>
+            <p>小66姐姐</p>
+        </div>
+    </div>
+    <p>大可爱</p>
+    <!-- 并集选择器 -->
+    <div class="bing">bing</div>
+    <p class="asd">654</p>
+    <a class="rrr">321</a>
+    <!-- hover选择器 -->
+    <div class="box">
+        hezihezi
+    </div>
+</body>
+</html>
