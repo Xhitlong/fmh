@@ -1,43 +1,52 @@
-class Solution(object):
-  def findCircleNum(self, isConnected):
-      """
-      无向图的连通数
-      :type isConnected: List[List[int]]
-      :rtype: int
-      """
-      # 用栈实现广度优先遍历
-      stack = []
-      M = len(isConnected)        # 顶点数
-      v = [1 for _ in range(M)]   # 顶点的标记数组，0就是访问过了
-      count = 0
-      search_list = []
-      while sum(v) > 0:
-          # idx: 当前准备搜索的节点
-          idx = 0
-          while v[idx] == 0:
-              idx += 1
-          # 到这里就找到了当前第一个还没有访问过的节点idx
-          # 准备从idx开始搜索第一个图，count可以直接加一
-          search_list.append([])
-          count += 1
+var findCircleNum = function(isConnected) {
+    let num = 0;
+    let n = isConnected.length;
+    // 建立并查集
+    const uf = new UnionFind(n);
+    // 遍历连接
+    for (let row = 0; row < n; row++) {
+        for(let col = 0; col < n; col++){
+            if (isConnected[row][col] === 1) 
+                uf.union(row, col);
+        }
+    }
+    // 根节点是自身的则是一个连通分量
+    for (let i = 0; i < n; i++) {
+        if (uf.findRoot(i)==i)
+            num++;
+    }
+    return num;
+};
 
-          # 剪枝，如果只剩下一个节点那么直接退出
-          if sum(v) == 1:
-              v[idx] = 0
-              search_list[-1].append(idx)
-              break
-          # 把节点压入栈中，准备找他的邻接点
-          stack.append(idx)
-          while len(stack) > 0:
-              # 拿出最底下的节点，找他的邻接点
-              idx2 = stack.pop(0)
-              # 用search_list记录连通图，也就是BFS的路径
-              search_list[-1].append(idx2)
-
-              v[idx2] = 0
-              # 如果节点未被访问并且是当前节点的邻接点，那么压栈，表示还可以接着往下走
-              for idx3,i in enumerate(isConnected[idx2]):
-                  if i == 1 and v[idx3] == 1:
-                      stack.append(idx3)
-      # print(search_list)
-      return count
+class UnionFind {
+    constructor(num) { // num 表示顶点个数
+        this.parents = new Array(num);
+        this.ranks = new Array(num);  //记录树的高度
+        for (let i = 0; i < num; i++) {
+            this.parents[i] = -1;
+            this.ranks[i] = 0;
+        }
+    }
+    findRoot(x) { // 找出顶点x的根节点
+        let x_root = x;
+        while (this.parents[x_root] !== -1) { // 找到尽头
+            x_root = this.parents[x_root];
+        }
+        return x_root; // 返回根节点
+    }
+    union(x, y) { // 把顶点x和顶点y所在的集合合并到一起
+        let x_root = this.findRoot(x);
+        let y_root = this.findRoot(y);
+        if (x_root === y_root) return;
+        let x_rank = this.ranks[x_root];
+        let y_rank = this.ranks[y_root];
+        if (x_rank < y_rank) {    // 高度大的作为根节点
+            this.parents[x_root] = y_root;
+        } else if (y_rank < x_rank) {
+            this.parents[y_root] = x_root;
+        } else {                  // 一样高，都可以根节点都行
+            this.parents[y_root] = x_root;
+            this.ranks[x_root]++;
+        }   
+    }
+}
